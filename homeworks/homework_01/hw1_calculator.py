@@ -10,9 +10,12 @@ def calculator(x, y, operator):
         return x - y
     elif operator == 'mult':
         return x * y
-    else:
+    elif operator == 'divide':
         if y != 0:
             return x / y
         else:
             return None
+    else:
+        return None
+
 
