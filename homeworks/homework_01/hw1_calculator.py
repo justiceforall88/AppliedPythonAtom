@@ -20,5 +20,3 @@ def calculator(x, y, operator):
             return None
     else:
         return None
-
-
