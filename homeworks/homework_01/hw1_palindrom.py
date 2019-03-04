@@ -6,6 +6,8 @@ def check_palindrom(input_string):
 
     start = 0
     end = len(input_string) - 1
+    if len(input_string) == 0:
+        return True
     while start < end:
         while not input_string[start].isalnum():
             start += 1
