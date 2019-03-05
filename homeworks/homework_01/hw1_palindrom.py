@@ -9,6 +9,7 @@ def check_palindrom(input_string):
     if len(input_string) == 0:
         return True
     while start < end:
+        print(start, end)
         while not input_string[start].isalnum():
             start += 1
             if start == end:
@@ -19,4 +20,6 @@ def check_palindrom(input_string):
                 return True
         if input_string[start].lower() != input_string[end].lower():
             return False
+        start += 1
+        end -= 1
     return True
