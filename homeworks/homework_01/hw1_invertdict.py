@@ -13,6 +13,7 @@ def splitvals(val, t):
 def invert_dict(source_dict):
     tmp_dict = dict()
     new_dict = dict()
+    print(source_dict)
     for k, v in source_dict.items():
         arr = []
         splitvals(v, arr)
