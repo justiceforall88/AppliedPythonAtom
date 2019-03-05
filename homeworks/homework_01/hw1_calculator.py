@@ -3,9 +3,9 @@
 
 
 def calculator(x, y, operator):
-    x_cond = isinstance(x, int) or isinstance(x, float) or isinstance(x, complex)
-    y_cond = isinstance(y, int) or isinstance(y, float) or isinstance(y, complex)
-    if not (x_cond and y_cond):
+    x_c = isinstance(x, int) or isinstance(x, float) or isinstance(x, complex)
+    y_c = isinstance(y, int) or isinstance(y, float) or isinstance(y, complex)
+    if not (x_c and y_c):
         return None
     if operator == 'plus':
         return x + y
