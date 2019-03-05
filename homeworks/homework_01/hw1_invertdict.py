@@ -25,5 +25,5 @@ def invert_dict(source_dict):
                 else:
                     if not isinstance(new_dict[el], list):
                         new_dict[el] = [new_dict[el]]
-                    new_dict[el].append(i)
+                    new_dict[el].append(k)
     return new_dict
