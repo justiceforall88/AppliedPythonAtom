@@ -26,6 +26,7 @@ def is_bracket_correct(input_string):
         if fig_count < 0:
             return False
     if cir_count == 0 and sqr_count == 0 and fig_count == 0:
+        print(input_string)
         return True
     else:
         return False
