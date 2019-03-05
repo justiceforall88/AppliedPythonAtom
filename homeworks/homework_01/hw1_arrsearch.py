@@ -3,19 +3,14 @@
 
 
 def find_indices(input_list, n):
-
-    input_list.sort()
-    start = 0
-    end = len(input_list) - 1
-    if len(input_list) == 0:
-        return None
-    while start != end:
-        cur = input_list[start] + input_list[end]
-        if cur < n:
-            start += 1
-        elif cur > n:
-            end -= 1
+    tmp = {}
+    k = 0
+    for a in input_list:
+        if n - a in tmp.values():
+            for key in tmp.keys():
+                if tmp[key] == n - a:
+                    return key, k
         else:
-            an = (start, end)
-            return an
+            tmp[k] = a
+        k += 1
     return None
