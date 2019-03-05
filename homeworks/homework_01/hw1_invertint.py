@@ -4,10 +4,10 @@
 
 def reverse(number):
     mn = 1
-    if n < 0:
+    if number < 0:
         mn = -1
-    n *= mn
-    s = str(n)
+    number *= mn
+    s = str(number)
     s_inv = s[::-1]
     n_inv = int(s_inv)
     return n_inv * mn
