@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+import copy
 
 def minor(list_of_lists, i, j):
     for k in range(len(list_of_lists)):
@@ -9,13 +9,14 @@ def minor(list_of_lists, i, j):
     return list_of_lists
 
 def calculate(list_of_lists):
+    n = len(list_of_lists)
     if n == 1:
         return list_of_lists[0][0]
     else:
         det = 0
         for k in range(n):
-            det += ((-1)**k)*list_of_lists[0][k]*calculate(minor(list_of_lists, 0, k))
-            return det
+            det += ((-1)**k)*list_of_lists[0][k]*calculate(minor(copy.deepcopy(list_of_lists), 0, k))
+        return det
 
 def calculate_determinant(list_of_lists):
     n = len(list_of_lists)
