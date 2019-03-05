@@ -21,3 +21,4 @@ def calculate_determinant(list_of_lists):
         det = 0
         for k in range(n):
             det += ((-1)**k)*list_of_lists[0][k]*calculate_determinant(minor(list_of_lists, 0, k))
+            return det
