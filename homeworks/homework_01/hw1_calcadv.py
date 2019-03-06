@@ -63,9 +63,9 @@ def to_reverse_polish(tokens):
         elif t == "(":
             stack.append(t)
         else:
-            new_tokens(t)
+            new_tokens.append(t)
     while stack:
-        new_tokens(stack.pop())
+        new_tokens.append(stack.pop())
     return new_tokens
 
 
