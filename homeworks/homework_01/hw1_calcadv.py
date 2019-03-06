@@ -12,12 +12,14 @@ def is_correct(input_string):
     num = ""
     prev = ''
     br = 0
+    is_operands = False
     for s in input_string:
         if s not in valid_char or br < 0:
             return False
         if s in digits:
             num += s
         elif num:
+            is_operands = True
             tmp.append(1)
             num = ""
         if s in ops.keys() or s in "()":
@@ -42,7 +44,7 @@ def is_correct(input_string):
         for s in range(len(input_string) - 1):
             if input_string[s] == '(' and input_string[s + 1] == ')':
                 return False
-    if br != 0:
+    if br != 0 or not is_operands:
         return False
     return True
 
