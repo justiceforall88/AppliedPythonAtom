@@ -37,7 +37,8 @@ def is_correct(input_string):
     for i in range(len(tmp) - 1):
         if tmp[i] == tmp[i + 1] == 1:
             return False
-        if tmp[i] == '(' and tmp[i + 1] == ')':
+    for s in range(len(input_string)):
+        if tmp[s] == '(' and tmp[s + 1] == ')':
             return False
     if br != 0:
         return False
