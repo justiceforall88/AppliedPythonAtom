@@ -117,8 +117,5 @@ def _eval():
 def advanced_calculator(input_string):
     if not is_correct(input_string):
         return None
-    try:
-        answ = eval(input_string)
-    except SyntaxError:
-        return None
+    answ = eval(input_string)
     return answ
