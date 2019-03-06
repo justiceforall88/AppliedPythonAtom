@@ -24,7 +24,10 @@ def is_correct(input_string):
             num = ""
         if s in ops.keys() or s in "()":
             if s not in "()":
-                if ops[s] == 2 and (not tmp or tmp[-1]):
+                if tmp:
+                    if tmp[-1] == 0 and ops[s] == 2:
+                        return False
+                elif not tmp and ops[s] == 2:
                     return False
                 tmp.append(0)
             else:
