@@ -88,11 +88,11 @@ def _eval():
             new_tokens.append(stack.pop())
         return new_tokens
 
-    def calculate(new_tokens):
-        if not new_tokens:
+    def calculate(tokens):
+        if not tokens:
             return None
         stack = []
-        for t in new_tokens:
+        for t in tokens:
             if t in ops.keys():
                 y, x = stack.pop(), stack.pop()
                 if t == '+':
@@ -119,3 +119,4 @@ def advanced_calculator(input_string):
         return None
     answ = eval(input_string)
     return answ
+
