@@ -3,7 +3,6 @@
 
 
 def find_indices(input_list, n):
-    
     tmp = {}
     k = 0
     for a in input_list:
