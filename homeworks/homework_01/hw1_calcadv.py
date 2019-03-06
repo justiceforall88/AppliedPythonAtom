@@ -34,12 +34,14 @@ def is_correct(input_string):
                     br -= 1
     if num:
         tmp.append(1)
-    for i in range(len(tmp) - 1):
-        if tmp[i] == tmp[i + 1] == 1:
-            return False
-    for s in range(len(input_string) - 1):
-        if tmp[s] == '(' and tmp[s + 1] == ')':
-            return False
+    if len(tmp) > 1:
+        for i in range(len(tmp) - 1):
+            if tmp[i] == tmp[i + 1] == 1:
+                return False
+    if len(input_string) > 1:
+        for s in range(len(input_string) - 1):
+            if tmp[s] == '(' and tmp[s + 1] == ')':
+                return False
     if br != 0:
         return False
     return True
