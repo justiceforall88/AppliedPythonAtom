@@ -18,8 +18,8 @@ def is_correct(input_string):
             return False
         if s in digits:
             num += s
-        elif num:
             is_operands = True
+        elif num:
             tmp.append(1)
             num = ""
         if s in ops.keys() or s in "()":
@@ -36,14 +36,12 @@ def is_correct(input_string):
                     br -= 1
     if num:
         tmp.append(1)
-    if len(tmp) > 1:
-        for i in range(len(tmp) - 1):
-            if tmp[i] == tmp[i + 1] == 1:
-                return False
-    if len(input_string) > 1:
-        for s in range(len(input_string) - 1):
-            if input_string[s] == '(' and input_string[s + 1] == ')':
-                return False
+    for i in range(len(tmp) - 1):
+        if tmp[i] == tmp[i + 1] == 1:
+            return False
+    for s in range(len(input_string) - 1):
+        if input_string[s] == '(' and input_string[s + 1] == ')':
+            return False
     if br != 0 or not is_operands:
         return False
     return True
@@ -119,6 +117,4 @@ def _eval():
 def advanced_calculator(input_string):
     if not is_correct(input_string):
         return None
-    answ = eval(input_string)
-    return answ
-
+    return eval(input_string)
