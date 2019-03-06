@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
+import pickle
 ops = {'+': 1, '-': 1, '*': 2, '/': 2}
 
 
 def is_correct(input_string):
     if not input_string:
         return None
-    valid_char = "1234567890.+-*/() "
+    valid_char = "1234567890.+-*/() \t"
     digits = "1234567890."
     tmp = []
     num = ""
-    prev = ''
     br = 0
     is_operands = False
     for s in input_string:
@@ -24,10 +24,11 @@ def is_correct(input_string):
             num = ""
         if s in ops.keys() or s in "()":
             if s not in "()":
-                if prev and tmp[-1] == 0:
-                    if ops[prev] + ops[s] > 2:
+                if tmp:
+                    if tmp[-1] == 0 and ops[s] == 2:
                         return False
-                prev = s
+                elif not tmp and ops[s] == 2:
+                    return False
                 tmp.append(0)
             else:
                 if s == '(':
