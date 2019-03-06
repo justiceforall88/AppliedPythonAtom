@@ -112,4 +112,6 @@ def _eval():
 def advanced_calculator(input_string):
     if not is_correct(input_string):
         return None
-    return eval(input_string)
+    answ = eval(input_string)
+    return answ
+
