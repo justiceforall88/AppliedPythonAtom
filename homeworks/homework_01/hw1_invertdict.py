@@ -2,11 +2,28 @@
 # coding: utf-8
 
 
+def splitvals(val, t):
+    if isinstance(val, set) or isinstance(val, tuple) or isinstance(val, list):
+        for i in val:
+            splitvals(i, t)
+    else:
+        t.append(val)
+
+
 def invert_dict(source_dict):
-    '''
-    Функция которая разворачивает словарь, т.е.
-    каждому значению ставит в соответствие ключ.
-    :param source_dict: dict
-    :return: new_dict: dict
-    '''
-    raise NotImplementedError
+    tmp_dict = dict()
+    new_dict = dict()
+    if source_dict:
+        for k, v in source_dict.items():
+            arr = []
+            splitvals(v, arr)
+            tmp_dict[k] = arr
+        for k, v in tmp_dict.items():
+            for el in v:
+                if el not in new_dict.keys():
+                    new_dict[el] = k
+                else:
+                    if not isinstance(new_dict[el], list):
+                        new_dict[el] = [new_dict[el]]
+                    new_dict[el].append(k)
+    return new_dict
