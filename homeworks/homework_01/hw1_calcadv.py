@@ -40,7 +40,7 @@ def is_correct(input_string):
                 return False
     if len(input_string) > 1:
         for s in range(len(input_string) - 1):
-            if tmp[s] == '(' and tmp[s + 1] == ')':
+            if input_string[s] == '(' and input_string[s + 1] == ')':
                 return False
     if br != 0:
         return False
