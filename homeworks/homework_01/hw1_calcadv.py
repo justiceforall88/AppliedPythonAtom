@@ -114,4 +114,3 @@ def advanced_calculator(input_string):
         return None
     answ = eval(input_string)
     return answ
-
