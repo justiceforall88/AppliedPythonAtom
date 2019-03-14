@@ -26,7 +26,7 @@ class VKPoster:
             self.read_post[user_id].add(post_id)
 
     def user_follow_for(self, follower_user_id: int, followee_user_id: int):
-        if user_id not in self.follow_user.keys():
+        if followee_user_id not in self.follow_user.keys():
             self.follow_user[followee_user_id] = {follower_user_id}
         else:
             self.follow_user[followee_user_id].add(follower_user_id)
