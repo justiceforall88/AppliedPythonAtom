@@ -2,8 +2,8 @@
 # coding: utf-8
 
 
-from homeworks.homework_02.heap import MaxHeap
-from homeworks.homework_02.fastmerger import FastSortedListMerger
+#from homeworks.homework_02.heap import MaxHeap
+#from homeworks.homework_02.fastmerger import FastSortedListMerger
 
 
 class VKPoster:
@@ -26,17 +26,17 @@ class VKPoster:
             self.read_post[user_id].add(post_id)
 
     def user_follow_for(self, follower_user_id: int, followee_user_id: int):
-        if followee_user_id not in self.follow_user.keys():
-            self.follow_user[followee_user_id] = {follower_user_id}
+        if follower_user_id not in self.follow_user.keys():
+            self.follow_user[follower_user_id] = {followee_user_id}
         else:
-            self.follow_user[followee_user_id].add(follower_user_id)
+            self.follow_user[follower_user_id].add(followee_user_id)
 
     def get_recent_posts(self, user_id: int, k: int)-> list:
         all_posts = set()
         for key, value in self.publish_post.items():
             if user_id in self.follow_user.keys():
                 if key in self.follow_user[user_id]:
-                    all_posts.union(value)
+                    all_posts = all_posts.union(value)
         all_posts = sorted(list(all_posts), reverse=True)
         return all_posts[:k]
 
