@@ -2,6 +2,10 @@
 # coding: utf-8
 
 
+from heap import MaxHeap
+from fastmerger import FastSortedListMerger
+
+
 class VKPoster:
 
     def __init__(self):
