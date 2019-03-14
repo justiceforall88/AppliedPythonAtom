@@ -48,11 +48,11 @@ class VKPoster:
                     all_posts_count[a] = 1
                 else:
                     all_posts_count[a] += 1
-        all_posts_count = {value: key for key, value in all_posts_count.items()}
+        all_posts_count = sorted(all_posts_count.items(), key=lambda kv: kv[1], reverse=True)
         answer = []
         cnt = 0
-        for a in sorted(list(all_posts_count.keys()), reverse=True):
-            answer.append(all_posts_count[a])
+        for a in all_posts_count:
+            answer.append(a[0])
             cnt += 1
             if cnt == k:
                 return answer
