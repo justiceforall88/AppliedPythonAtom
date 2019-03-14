@@ -34,8 +34,9 @@ class VKPoster:
     def get_recent_posts(self, user_id: int, k: int)-> list:
         all_posts = set()
         for key, value in self.publish_post.items():
-            if key in self.follow_user[user_id]:
-                all_posts.union(value)
+            if user_id in self.follow_user.keys():
+                if key in self.follow_user[user_id]:
+                    all_posts.union(value)
         all_posts = sorted(list(all_posts), reverse=True)
         return all_posts[:k]
 
